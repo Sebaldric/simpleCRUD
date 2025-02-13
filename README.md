@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Next.js + Supabase スーパーアプリ
 
-## Getting Started
+## Claude3.5でREADMEを作成
 
-First, run the development server:
+@codebase create readme
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌟 プロジェクトの概要
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+このプロジェクトは、Next.js 15とSupabaseを組み合わせた最低限の機能　”のみ！”　何もないです！！
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 技術スタック
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **フロントエンド**: Next.js 15
+- **スタイリング**: TailwindCSS
+- **認証/データベース**: Supabase
+- **フォント**: Geist（Vercelの新フォント）
+- **開発環境**: Docker
 
-## Learn More
+## 🔥 主な機能
 
-To learn more about Next.js, take a look at the following resources:
+- 🔐 セキュアな認証システム
+- 🎨 ダークモード対応してません
+- 🚀 TypeScript完全対応
+- 📱 レスポンシブデザインしてません
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 開発を始める
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# リポジトリのクローン
 
-## Deploy on Vercel
+git clone
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# 依存関係のインストール
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+npm install
+
+docker-compose up --build
+
+# 開発サーバーの起動
+
+## 🧪 品質管理
+
+- ESLint + Prettier による自動コード整形
+- Husky + lint-staged によるコミット前チェック
+- Conventional Commits に準拠したコミットメッセージ
+- Jest による単体テスト
+
+## 📝 コミットメッセージのルール
+
+このプロジェクトは Conventional Commits に従っています：
+※library追加後
+
+- `feat:` 新機能
+- `fix:` バグ修正
+- `docs:` ドキュメントのみの変更
+- `style:` コードの意味に影響しない変更
+- `refactor:` バグ修正や機能追加のないコード変更
+
+## 🤝 コントリビューション
+
+1. このリポジトリをフォーク
+2. 新しいブランチを作成 (`git checkout -b feature/amazing-feature`)
+3. 変更をコミット (`git commit -m 'feat or fix: 素晴らしい機能を追加'`)
+4. ブランチにプッシュ (`git push origin feature/amazing-feature`)
+5. プルリクエストを作成
+
+## 📜 ライセンス
+
+このプロジェクトはMITライセンスの下で公開されています。
+
+とくにないです。
+
+Made with ❤️ by [SeaDog]
