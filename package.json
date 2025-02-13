@@ -7,14 +7,18 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "jest",
     "prepare": "husky"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.48.1",
     "next": "15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
     "@eslint/eslintrc": "^3",
     "@types/jest": "^29.5.14",
     "@types/node": "^20",
