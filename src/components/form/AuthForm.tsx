@@ -1,3 +1,4 @@
+"use client";
 // types/auth.ts
 interface FormData {
   email: string;
@@ -11,6 +12,8 @@ interface FormErrors {
   confirmPassword?: string;
 }
 
+import { handleSignIn } from "@/lib/auth/signIn";
+import { handleSignUp } from "@/lib/auth/signUp";
 // components/AuthForms.tsx
 import { useState } from "react";
 
@@ -73,7 +76,15 @@ const AuthForms = () => {
     if (validateForm()) {
       try {
         // ここに認証APIの呼び出しを実装
-        console.log("Form submitted:", formData);
+        if (isSignUp) {
+          //登録認証
+          console.log("Form submitted:", formData);
+          handleSignUp(formData.email, formData.password);
+        } else if (!isSignUp) {
+          //ログイン認証
+          console.log("Form submitted:", formData);
+          handleSignIn(formData.email, formData.password);
+        }
       } catch (error) {
         console.error("Authentication error:", error);
       }
@@ -86,13 +97,49 @@ const AuthForms = () => {
       ...prev,
       [name]: value,
     }));
-    // 入力時にエラーをクリア
-    if (errors[name as keyof FormErrors]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: undefined,
-      }));
+
+    // 各フィールドに対する個別のバリデーション
+    const newErrors: FormErrors = { ...errors };
+
+    if (name === "email") {
+      if (!value) {
+        newErrors.email = "メールアドレスを入力してください";
+      } else if (!validateEmail(value)) {
+        newErrors.email = "有効なメールアドレスを入力してください";
+      } else {
+        delete newErrors.email;
+      }
     }
+
+    if (name === "password") {
+      if (!value) {
+        newErrors.password = "パスワードを入力してください";
+      } else if (!validatePassword(value)) {
+        newErrors.password =
+          "パスワードは8文字以上で、数字、大文字、小文字を含める必要があります";
+      } else {
+        delete newErrors.password;
+      }
+
+      // パスワード変更時に確認用パスワードのバリデーションも実行
+      if (isSignUp && formData.confirmPassword) {
+        if (value !== formData.confirmPassword) {
+          newErrors.confirmPassword = "パスワードが一致しません";
+        } else {
+          delete newErrors.confirmPassword;
+        }
+      }
+    }
+
+    if (name === "confirmPassword" && isSignUp) {
+      if (value !== formData.password) {
+        newErrors.confirmPassword = "パスワードが一致しません";
+      } else {
+        delete newErrors.confirmPassword;
+      }
+    }
+
+    setErrors(newErrors);
   };
 
   return (
