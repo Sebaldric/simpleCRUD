@@ -7,7 +7,7 @@ Next.js 15とSupabaseを組み合わせて何かつくる
 
 - **フロントエンド**: Next.js 15
 - **スタイリング**: TailwindCSS
-- **認証/データベース**: Supabase
+- **認証/データベース**: Supabase ※追記：Hono使った方がむしろ早いかもしれん
 - **デプロイサーバ**: 未選定
 - **フォント**: Geist（next標準）
 - **開発環境**: Docker
